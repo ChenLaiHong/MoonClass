@@ -22,6 +22,16 @@ import java.util.Scanner;
 public class Two {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int input = sc.nextInt();
+        String input = sc.next();
+        int hour = Integer.parseInt(input)/100;
+        String mimut = (input+"").substring(input.length()-2,input.length());
+        String output ="";
+        if(hour<8){
+            output=24+hour-8+mimut;
+
+        }else {
+            output=hour-8+mimut;
+        }
+        System.out.print(output);
     }
 }
