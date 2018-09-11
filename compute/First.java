@@ -9,9 +9,6 @@ import java.util.Scanner;
  */
 public class First {
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        int input = sc.nextInt();
-        int output =(int) ((input-32)*5/9);
-        System.out.print(output);
+        System.out.print("https://testresources.yi-insurance.com/other_img/62227337-f379-42c9-a225-090288be1139.jpg".length());
     }
 }
