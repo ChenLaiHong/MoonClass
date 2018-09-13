@@ -61,8 +61,46 @@ public class NumberUtils {
 
 
     /*
-    给定一个 32 位有符号整数，将整数中的数字进行反转。
-    假设我们的环境只能存储 32 位有符号整数，其数值范围是 [−231,  231 − 1]。根据这个假设，如果反转后的整数溢出，则返回 0。
+   给定一个字符串，找出不含有重复字符的最长子串的长度。
+   例如：
+    输入: "abcabcbb"
+    输出: 3
+    解释: 无重复字符的最长子串是 "abc"，其长度为 3。
+    输入: "bbbbb"
+    输出: 1
+    解释: 无重复字符的最长子串是 "b"，其长度为 1。
+    输入: "pwwkew"
+    输出: 3
+    解释: 无重复字符的最长子串是 "wke"，其长度为 3。
+         请注意，答案必须是一个子串，"pwke" 是一个子序列 而不是子串。
     * */
-
+    public static int lengthOfLongestSubstring(String s) {
+        int result = 0;
+        String temp = "";
+        for(int i = 0;i < s.length();i++){
+            for(int j = i; j < s.length(); j++) {
+                if (!temp.contains(s.charAt(j) + "")) {
+                    temp += s.charAt(j);
+                    if (temp.length() > result) {
+                        result = temp.length();
+                    }
+                } else {
+                    temp = "";
+                    break;
+                }
+            }
+        }
+        return result;
+        /**参考答案
+         * int n = s.length(), ans = 0;
+         int[] index = new int[128]; // current index of character
+         // try to extend the range [i, j]
+         for (int j = 0, i = 0; j < n; j++) {
+         i = Math.max(index[s.charAt(j)], i);
+         ans = Math.max(ans, j - i + 1);
+         index[s.charAt(j)] = j + 1;
+         }
+         return ans;
+         * */
+    }
 }
