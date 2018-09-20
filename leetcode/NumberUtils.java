@@ -75,24 +75,24 @@ public class NumberUtils {
          请注意，答案必须是一个子串，"pwke" 是一个子序列 而不是子串。
     * */
     public static int lengthOfLongestSubstring(String s) {
-        int result = 0;
-        String temp = "";
-        for(int i = 0;i < s.length();i++){
-            for(int j = i; j < s.length(); j++) {
-                if (!temp.contains(s.charAt(j) + "")) {
-                    temp += s.charAt(j);
-                    if (temp.length() > result) {
-                        result = temp.length();
-                    }
-                } else {
-                    temp = "";
-                    break;
-                }
-            }
-        }
-        return result;
-        /**参考答案
-         * int n = s.length(), ans = 0;
+//        int result = 0;
+//        String temp = "";
+//        for(int i = 0;i < s.length();i++){
+//            for(int j = i; j < s.length(); j++) {
+//                if (!temp.contains(s.charAt(j) + "")) {
+//                    temp += s.charAt(j);
+//                    if (temp.length() > result) {
+//                        result = temp.length();
+//                    }
+//                } else {
+//                    temp = "";
+//                    break;
+//                }
+//            }
+//        }
+//        return result;
+        //参考答案
+         int n = s.length(), ans = 0;
          int[] index = new int[128]; // current index of character
          // try to extend the range [i, j]
          for (int j = 0, i = 0; j < n; j++) {
@@ -101,6 +101,20 @@ public class NumberUtils {
          index[s.charAt(j)] = j + 1;
          }
          return ans;
-         * */
+
+    }
+
+    /**
+     * 给定一个字符串 s，找到 s 中最长的回文子串。你可以假设 s 的最大长度为1000。
+     *   输入: "babad"
+         输出: "bab"
+         注意: "aba"也是一个有效答案。
+         输入: "cbbd"
+         输出: "bb"
+     * */
+    public static String longestPalindrome(String s) {
+
+
+        return "";
     }
 }
